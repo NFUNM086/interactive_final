@@ -7,12 +7,12 @@
 
 ### 数据来源
 
-**国家统计局：**
+- **国家统计局：**
 1. [2010-2016年分省互联网普及率](http://data.stats.gov.cn/easyquery.htm?cn=E0103)
 2. [2000-2018年分省电商销售额](http://data.stats.gov.cn/easyquery.htm?cn=E0103)
 3. [2000-2018年分省GDP](http://data.stats.gov.cn/easyquery.htm?cn=E0103)
 
-**百度百科：**
+- **百度百科：**
 1. [中国最具幸福感城市2007-2019年排行榜（新华社瞭望东方周刊、瞭望智库共同主办）](https://baike.baidu.com/item/%E4%B8%AD%E5%9B%BD%E6%9C%80%E5%85%B7%E5%B9%B8%E7%A6%8F%E6%84%9F%E5%9F%8E%E5%B8%82/23186310?fr=aladdin)
 
 ### 数据清理
