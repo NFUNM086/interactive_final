@@ -1,5 +1,7 @@
 # 促进或是抑制：探究我国地区互联网发达程度与居民幸福感的关系
 
+#### Pythonanywhere入口
+
 ### 研究背景
 
 [“2019中国最具幸福感城市”](https://baike.baidu.com/item/%E4%B8%AD%E5%9B%BD%E6%9C%80%E5%85%B7%E5%B9%B8%E7%A6%8F%E6%84%9F%E5%9F%8E%E5%B8%82/23186310?qq-pf-to=pcqq.temporaryc2c)（由新华社瞭望东方周刊、瞭望智库共同主办）调查推选结果于不久前的11月25日在广州发布。众所周知，“幸福感”对于城市来说十分重要。它意味着居民对所在城市的认同感、归属感、安定感、满足感，以及外界人群的向往度、赞誉度。
@@ -22,6 +24,62 @@
 3. [2014-2018年分省GDP（亿元）表格](https://github.com/NFUNM086/interactive_final/blob/master/GDP.csv)
 4. [2012-2019年中国最具幸福感城市前十排行榜](https://github.com/NFUNM086/interactive_final/blob/master/happiness_times_draft.csv)
 5. [2012-2019中国最具幸福感城市入榜（前五）次数](https://github.com/NFUNM086/interactive_final/blob/master/happiness_times.csv)
+
+### 可视化过程
+
+```
+
+# 数据清洗
+互联网普及率2016 = list(zip(list(dfi.province),list(dfi.year_2016)))  # 转换为列表
+# print (互联网普及率2016)
+电商销售额2018 = list(zip(list(dfs.province),list(dfs.year_2018)))  
+# print (电商销售额2018)
+GDP2018 = list(zip(list(dfg.province),list(dfg.year_2018)))
+# print(GDP2018)
+happiness = list(zip(list(dfh.province),list(dfh.times)))
+# print(happiness)
+
+from pyecharts import options as opts
+from pyecharts.charts import Scatter
+
+
+# 2012-2019中国最具幸福感城市推选评比入榜（前五）次数散点图
+def scatter_base() -> Scatter:
+    c = (
+        Scatter(init_opts=opts.InitOpts(width="2500px", height="800px"))
+        .add_xaxis(list(dfh.province))
+        .add_yaxis("次数", list(dfh.times))
+        .set_global_opts(title_opts=opts.TitleOpts(title="2012-2019最具幸福感城市推选评比上榜（前五）次数"))
+    )
+    return c
+scatter_base().render_notebook()
+
+
+# 2016中国分省互联网普及率热力图
+from pyecharts import options as opts
+from pyecharts.charts import Geo
+from pyecharts.globals import ChartType, SymbolType
+
+def geo_heatmap() -> Geo:
+    c = (
+        Geo()
+        .add_schema(maptype="china")
+        .add(
+            "互联网普及率",
+            互联网普及率2016,
+            type_=ChartType.HEATMAP,
+        )
+        .set_series_opts(label_opts=opts.LabelOpts(is_show=False))
+        .set_global_opts(
+            visualmap_opts=opts.VisualMapOpts(),
+            title_opts=opts.TitleOpts(title="2016中国分省互联网普及率热力图"),
+        )
+    )
+    return c
+分省互联网普及率热力图 = geo_heatmap()
+分省互联网普及率热力图.render_notebook()
+```
+
 
 ### 故事阐述
 
