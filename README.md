@@ -1,6 +1,8 @@
 # 促进或是抑制：探究我国地区互联网发达程度与居民幸福感的关系
 
-#### Pythonanywhere入口
+#### Pythonanywhere链接
+
+#### [html链接](http://nfunm086.gitee.io/interative_html/)
 
 ### 研究背景
 
@@ -25,7 +27,7 @@
 4. [2012-2019年中国最具幸福感城市前十排行榜](https://github.com/NFUNM086/interactive_final/blob/master/happiness_times_draft.csv)
 5. [2012-2019中国最具幸福感城市入榜（前五）次数](https://github.com/NFUNM086/interactive_final/blob/master/happiness_times.csv)
 
-### 可视化过程
+### 具体可视化过程
 
 ```python
 ***数据清洗***
@@ -38,11 +40,8 @@ GDP2018 = list(zip(list(dfg.province),list(dfg.year_2018)))
 happiness = list(zip(list(dfh.province),list(dfh.times)))
 # print(happiness)
 
-from pyecharts import options as opts
-from pyecharts.charts import Scatter
 
-
-# 2012-2019中国最具幸福感城市推选评比入榜（前五）次数散点图
+***2012-2019中国最具幸福感城市推选评比入榜（前五）次数散点图***
 def scatter_base() -> Scatter:
     c = (
         Scatter(init_opts=opts.InitOpts(width="2500px", height="800px"))
@@ -52,9 +51,13 @@ def scatter_base() -> Scatter:
     )
     return c
 scatter_base().render_notebook()
+```
+
+![可视化过程1.png](https://upload-images.jianshu.io/upload_images/9400767-71655b9f91313f32.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 
-# 2016中国分省互联网普及率热力图
+```
+***2016中国分省互联网普及率热力图***
 from pyecharts import options as opts
 from pyecharts.charts import Geo
 from pyecharts.globals import ChartType, SymbolType
