@@ -1,8 +1,8 @@
 # 促进或是抑制：探究我国地区互联网发达程度与居民幸福感的关系
 
-#### Pythonanywhere链接
+- ### Pythonanywhere链接
 
-#### [html链接](http://nfunm086.gitee.io/interative_html/)
+- ### [html链接](http://nfunm086.gitee.io/interative_html/)
 
 ### 研究背景
 
@@ -39,9 +39,14 @@ GDP2018 = list(zip(list(dfg.province),list(dfg.year_2018)))
 # print(GDP2018)
 happiness = list(zip(list(dfh.province),list(dfh.times)))
 # print(happiness)
+```
 
-
+```python
 ***2012-2019中国最具幸福感城市推选评比入榜（前五）次数散点图***
+
+from pyecharts import options as opts
+from pyecharts.charts import Scatter
+
 def scatter_base() -> Scatter:
     c = (
         Scatter(init_opts=opts.InitOpts(width="2500px", height="800px"))
@@ -53,11 +58,14 @@ def scatter_base() -> Scatter:
 scatter_base().render_notebook()
 ```
 
+（得出下图，具体可跳转[html链接](http://nfunm086.gitee.io/interative_html/)查看完整图及交互效果）
+
 ![可视化过程1.png](https://upload-images.jianshu.io/upload_images/9400767-71655b9f91313f32.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 
-```
+```python
 ***2016中国分省互联网普及率热力图***
+
 from pyecharts import options as opts
 from pyecharts.charts import Geo
 from pyecharts.globals import ChartType, SymbolType
@@ -82,6 +90,67 @@ def geo_heatmap() -> Geo:
 分省互联网普及率热力图.render_notebook()
 ```
 
+（得出下图，具体可跳转[html链接](http://nfunm086.gitee.io/interative_html/)查看完整图及交互效果）
+
+![可视化过程2.png](https://upload-images.jianshu.io/upload_images/9400767-cca803ec94ae2bc4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+```python
+***近20年浙江省和天津市GDP对比图***
+
+import plotly as py
+from plotly.graph_objs import Scatter, Layout, Data
+import plotly.graph_objs as go
+
+浙江省 = go.Scatter(
+    x=[pd.to_datetime('01/01/{y}'.format(y=x), format="%m/%d/%Y") for x in df1.columns.values],
+    y=df1.loc["浙江省",:].values,
+    name = "浙江省"
+)
+
+天津市 = go.Scatter(
+    x=[pd.to_datetime('01/01/{y}'.format(y=x), format="%m/%d/%Y") for x in df1.columns.values],
+    y=df1.loc["天津市",:].values,
+    name = "天津市"
+)
+
+layout = dict(xaxis=dict(rangeselector=dict( buttons=list([
+                                                dict(count=3,
+                                                     label="3年",
+                                                     step="year",
+                                                     stepmode="backward"),
+                                                dict(count=5,
+                                                     label="5年",
+                                                     step="year",
+                                                     stepmode="backward"),
+                                                dict(count=10,
+                                                     label="10年",
+                                                     step="year",
+                                                     stepmode="backward"),
+                                                dict(count=20,
+                                                     label="20年",
+                                                     step="year",
+                                                     stepmode="backward"),
+                                                dict(step="all")
+                                            ])),
+                         rangeslider=dict(bgcolor="#F4FA58"),
+                         title='年份'
+                        ),
+              yaxis=dict(title='亿元'),
+              title="近20年浙江省和天津市GDP对比"               
+             )
+
+fig = dict(data=[浙江省,天津市], layout=layout) 
+
+# py.offline.plot(fig, filename = "近20年浙江省和天津市GDP对比_含时间序列的滑块选择器.html")
+#              ^^^这里可以只放数据data，也可以将数据data和排版layout结合，这是典型的面向对象
+py.offline.iplot(fig, filename = "近20年浙江省和天津市GDP对比.html")
+```
+
+（得出下图，具体可跳转[html链接](http://nfunm086.gitee.io/interative_html/)查看完整图及交互效果）
+
+![可视化过程3.png](https://upload-images.jianshu.io/upload_images/9400767-18ff2f940452b446.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+*考虑可读性，以上只展示了一部分图表，具体请看[html链接](http://nfunm086.gitee.io/interative_html/)
 
 ### 故事阐述和概括
 
