@@ -150,7 +150,7 @@ py.offline.iplot(fig, filename = "近20年浙江省和天津市GDP对比.html")
 
 ![可视化过程3.png](https://upload-images.jianshu.io/upload_images/9400767-18ff2f940452b446.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-*考虑可读性，以上只展示了一部分图表，具体请看[html链接](http://nfunm086.gitee.io/interative_html/)
+*考虑可读性，以上只展示了一部分图表，具体请看[html链接](http://nfunm086.gitee.io/interative_html/)*
 
 ### 故事阐述和概括
 
