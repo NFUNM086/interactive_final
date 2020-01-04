@@ -27,9 +27,8 @@
 
 ### 可视化过程
 
-```
-
-# 数据清洗
+```python
+***数据清洗***
 互联网普及率2016 = list(zip(list(dfi.province),list(dfi.year_2016)))  # 转换为列表
 # print (互联网普及率2016)
 电商销售额2018 = list(zip(list(dfs.province),list(dfs.year_2018)))  
