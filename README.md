@@ -1,7 +1,7 @@
 # 促进或是抑制：探究我国地区互联网发达程度与居民幸福感的关系
 
-- ### Pythonanywhere链接
-
+- ### [Pythonanywhere入口1：互联网普及率、GDP、电商销售额三者与“最具幸福感城市”上榜次数的对比](http://emmalei0118.pythonanywhere.com)
+- ### [Pythonanywhere入口2：其余图的整合](http://emmalui0118.pythonanywhere.com)
 - ### [html链接](http://nfunm086.gitee.io/interative_html/)
 
 ### 研究背景
